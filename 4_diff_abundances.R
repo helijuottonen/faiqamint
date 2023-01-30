@@ -160,8 +160,6 @@ muc_ds_sel <- muc_ds[muc_ds$taxa_id %in% row.names(muc_tax), ]
 muc_tax$log2FoldChange <- muc_ds_sel$log2FoldChange
 muc_tax$otugenus <- paste(muc_tax$Genus, row.names(muc_tax), sep=" ")
 muc_tax$taxa_id <- row.names(muc_tax)
-# muc_tax$taxa_id = with(muc_tax, reorder(taxa_id, log2FoldChange, median))
-# muc_tax$colorlfc <-ifelse(muc_tax$log2FoldChange > 1, "indianred", "steelblue")
 
 pgut_ds <- as.data.frame(pgut_da[[2]]) 
 pgut_ds_sel <- pgut_ds[pgut_ds$taxa_id %in% row.names(pgut_tax), ]
@@ -176,7 +174,6 @@ muc_tax$otugenus <- gsub("_marine_group", " marine group", muc_tax$otugenus)
 muc_tax$Class <- gsub("Bacteria_unclassified", "Unclassified Bacteria", muc_tax$Class)
 
 muc_tax$otugenus = with(muc_tax, reorder(otugenus, log2FoldChange, median))
-# muc_tax$colorlfc <-ifelse(muc_tax$log2FoldChange > 1, "indianred", "steelblue")
 
 discrete_rainbow <- colour("discrete rainbow")
 bpal7 <- as.vector(discrete_rainbow(13))  # from: khroma
@@ -185,7 +182,6 @@ muc_tax.plot <- ggplot(muc_tax, aes(otugenus, log2FoldChange, color=Class)) +
   geom_hline(yintercept = 0) +
   geom_point(size=4) + 
   theme_cowplot(12) +
-  #scale_color_identity() +
   theme(panel.grid.major = element_line(colour = "grey95")) +
   scale_colour_manual(values = bpal7) +
   theme(axis.title.y = element_blank()) +

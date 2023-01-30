@@ -21,7 +21,7 @@ filtdata.ds <- DESeqDataSetFromMatrix(countData= filt_otu, colData=filt_meta, de
 
 # correcting the order of treatments so that the control is first
 # if not corrected, the first in alphabetical order will be 'control'
-filtdata.ds$Treatments <- factor(filtdata.ds$Treatments, levels = c("Without_mint", "With_mint"))
+filtdata.ds$Treatments <- factor(filtdata.ds$Treatments, levels = c("RAS", "aquaponics"))
 # run the deseq analysis
 filtdata.ds <- DESeq(filtdata.ds)
 # write deseq results into an object

@@ -49,7 +49,7 @@ row.names(faotu.df) <- faotu.df$Group
 faotu.df <- subset(faotu.df, select = -c(1:3))
 
 # removing leaf samples and controls
-fameta <- subset(fameta, Organ != "leave" & Organ != "cont" & Organ != "feed")
+fameta <- subset(fameta, Organ != "Leaf" & Organ != "cont" & Organ != "feed")
 
 # Note, important: check what is in the negative controls at some point!
 

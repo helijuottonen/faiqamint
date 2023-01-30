@@ -38,8 +38,8 @@ faotu_fw <- faotu_fw[order(row.names(faotu_fw)),]
 fameta_fw2 <- fameta_fw2[order(row.names(fameta_fw2)),]
 
 # subsetting metadata based on treatments
-fameta_fw_m <- subset(fameta_fw2, Treatments=="With_mint")
-fameta_fw_wom <- subset(fameta_fw2, Treatments == "Without_mint")
+fameta_fw_m <- subset(fameta_fw2, Treatments=="aquaponics")
+fameta_fw_wom <- subset(fameta_fw2, Treatments == "RAS")
 fameta_fw_m <-  droplevels(fameta_fw_m)
 fameta_fw_wom <-  droplevels(fameta_fw_wom)
 
@@ -94,7 +94,7 @@ h_wom <- how(blocks = fameta_fw_wom$Organ, nperm = 999)
 
 # checking the significance of the RDA model
 
-# with mint
+# aquaponics (with mint)
 anova(faotu_fw_m.rda, permutations = h_m)
 
 # Permutation test for rda under reduced model
@@ -107,7 +107,7 @@ anova(faotu_fw_m.rda, permutations = h_m)
 # Model     3  0.17683 3.4382  0.311
 # Residual 23  0.39429
 
-# without mint
+# RAS (without mint)
 anova(faotu_fw_wom.rda, permutations= h_wom)
 
 # Permutation test for rda under reduced model

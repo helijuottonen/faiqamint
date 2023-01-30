@@ -55,7 +55,7 @@ div_meta <- subset(div_meta, Organ != "Root")
 
 # setting  labels
 div_meta$Organ <- fct_recode(div_meta$Organ, Mucous = "Mucous", Water = "Water", Anterior_gut = "Agut", Posterior_gut = "Pgut")
-div_meta$Treatments <- fct_recode(div_meta$Treatments, Aquaponics = "With_mint", RAS = "Without_mint")
+div_meta$Treatments <- fct_recode(div_meta$Treatments, Aquaponics = "aquaponics", RAS = "RAS")
 div_meta$Organ <- fct_relevel(div_meta$Organ, "Mucous", "Water", "Anterior_gut", "Posterior_gut")
 
 shplot <- ggplot(div_meta, aes(Treatments, shannon, fill = Treatments)) +

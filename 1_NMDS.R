@@ -63,9 +63,9 @@ gut.mds.sc.df <- subset_nmds_ms2(gut)
 organ_wr = factor(wr$Organ,c("Water", "Root"))
 organ_muc = factor(muc$Organ,c("Mucous"))
 organ_gut = factor(gut$Organ,c("Agut", "Pgut"))
-treat_wr = factor(wr$Treatments,c("Start_sample", "Without_mint", "With_mint"))
-treat_muc = factor(muc$Treatments,c("Start_sample", "Without_mint", "With_mint"))
-treat_gut = factor(gut$Treatments,c("Start_sample", "Without_mint", "With_mint"))
+treat_wr = factor(wr$Treatments,c("Start_sample", "RAS", "aquaponics"))
+treat_muc = factor(muc$Treatments,c("Start_sample", "RAS", "aquaponics"))
+treat_gut = factor(gut$Treatments,c("Start_sample", "RAS", "aquaponics"))
 
 # defining colours for plotting
 wr_pal <- c("#7BAFDE", "#90C087") #"#1965B0"

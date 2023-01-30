@@ -112,9 +112,6 @@ wm_faps_order_other <- faps_wm_order %>%
   # removing orders/rows with no reads
   filter(Abundance !=0)
 
-# renaming treatments for plotting (forcats)
-wm_faps_order_other$Treatments <- fct_recode(wm_faps_order_other$Treatments, Aquaponics = "With_mint", RAS = "Without_mint")
-
 # check the number of orders left after combining orders <1% relative abundance to 'other'
 # the aim is to make sure there are not too many for selecting colours for each order
 length(unique(wm_faps_order_other[,"Order_mod"]))
@@ -142,7 +139,6 @@ gut_faps_order_other <- faps_gut_order %>%
   filter(Abundance !=0)
 
 # renaming and reordering for plotting
-gut_faps_order_other$Treatments <- fct_recode(gut_faps_order_other$Treatments, Aquaponics = "With_mint", RAS = "Without_mint")
 gut_faps_order_other$Organ <- fct_recode(gut_faps_order_other$Organ, Anterior_gut = "Agut", Posterior_gut = "Pgut")
 
 # checking the number of colours needed
@@ -163,7 +159,7 @@ root_faps_order_other <- faps_root_order %>%
   mutate(Rel.Abundance = Abundance/sum(Abundance)) %>%
   filter(Abundance !=0)
 
-root_faps_order_other$Treatments <- fct_recode(root_faps_order_other$Treatments, Start_sample = "Start_sample", End_sample = "With_mint")
+root_faps_order_other$Treatments <- fct_recode(root_faps_order_other$Treatments, Start_sample = "Start_sample", End_sample = "aquaponics")
 
 length(unique(root_faps_order_other[,"Order_mod"]))
 
